@@ -1,0 +1,17 @@
+header {
+    nav {
+        ul {
+            display: flex;
+            list-style-type: none;
+
+            li {
+                border-color: #888888;
+                border-width: 1px;
+                border-style: solid;
+                padding: .25rem .5rem;
+                
+                    border-right: none;
+            }
+        }
+    }
+}
