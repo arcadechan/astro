@@ -1,36 +1,59 @@
-// $black: #232931;
-// $gray: #393e46;
-// $teal: #4ecca3;
-// $white: #eeeeee;
-
-$black: #000000;
-$gray: #4a455c;
-$teal: #743CCD;
-$white: #FFFFFF;
+@import '../styles/variables';
 
 html {
-    background-color: $black;
-    color: $teal;
-    font-family: Arial, Helvetica, sans-serif;
+  background-color: $black;
+  color: $teal;
+  font-family: Consolas, Helvetica, sans-serif;
+  font-size: 12px;
 
-    * {
-        margin: 0;
-        padding: 0;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+  }
 }
 
 a {
+  color: lighten($teal, 20%);
+
+  &:hover {
     color: $white;
+  }
 }
 
 h1 {
-    color: $teal;
+  color: $teal;
 }
 
 h2 {
-    color: $gray;
+  color: $gray;
 }
 
-h3, h4, h5, h6 {
-    color: $white;
+h3,
+h4,
+h5,
+h6,
+p {
+  color: $white;
+}
+
+body {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  main {
+    border: 1px solid $white;
+    padding: .5rem;
+
+    #links {
+      a {
+        display: block;
+
+        &:hover {
+          background-color: $teal;
+          color: $white;
+        }
+      }
+    }
+  }
 }
