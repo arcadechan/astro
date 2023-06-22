@@ -1,12 +1,15 @@
+@import '../variables.scss';
+
 header {
     nav {
         ul {
             display: flex;
             list-style-type: none;
             justify-content: center;
+            margin-bottom: 0;
 
             li {
-                border-color: #888888;
+                border-color: $white;
                 border-width: 1px;
                 border-style: solid;
                 border-right: none;
@@ -14,7 +17,7 @@ header {
                 padding: .25rem .5rem;
 
                 &:last-child {
-                    border-right: 1px solid #888888;
+                    border-right: 1px solid $white;
                 }
             }
         }

@@ -1,0 +1,39 @@
+---
+import Layout from '../../../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts')
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }))
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+<Layout>
+  <a href="/posts">Top</a>
+  <h1>{ post.slug }</h1>
+  <Content/>
+  <a id="prev-btn" style='display: none;' href="">Previous</a>
+  <a href="/posts">Top</a>
+  <a id="next-btn" style='display: none;' href="">Next</a>
+  <script>
+    const urlSearchParams = new URLSearchParams(window.location.search)
+    const { nextSlug, previousSlug } = Object.fromEntries(urlSearchParams.entries())
+
+    if(previousSlug) {
+      const prevBtn = document.querySelector('#prev-btn');
+      prevBtn.href = `/posts/${previousSlug}`
+      prevBtn.style.display = 'inline'
+    }
+
+    if(nextSlug) {
+      const nextBtn = document.querySelector('#next-btn');
+      nextBtn.href = `/posts/${nextSlug}`
+      nextBtn.style.display = 'inline'
+    }
+  </script>
+</Layout>

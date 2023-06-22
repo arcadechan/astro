@@ -5,15 +5,10 @@ html {
   color: $teal;
   font-family: Consolas, Helvetica, sans-serif;
   font-size: 12px;
-
-  * {
-    margin: 0;
-    padding: 0;
-  }
 }
 
 a {
-  color: lighten($teal, 20%);
+  color: lighten($teal, 10%);
 
   &:hover {
     color: $white;
@@ -38,22 +33,34 @@ p {
 
 body {
   padding: 2rem;
-  max-width: 800px;
+  // max-width: 800px;
+  max-width: 640px;
   margin: 0 auto;
 
   main {
     border: 1px solid $white;
     padding: .5rem;
 
-    #links {
-      a {
-        display: block;
-
-        &:hover {
-          background-color: $teal;
-          color: $white;
-        }
-      }
+    img {
+      min-width: 50%;
+      max-width: 100%;
     }
   }
+}
+
+.links {
+  a {
+    display: block;
+
+    &:hover {
+      background-color: $gray;
+      color: $black;
+    }
+  }
+}
+
+.box {
+  background-color: $darkBlack;
+  padding: 1rem;
+  margin: 1rem 0;
 }
