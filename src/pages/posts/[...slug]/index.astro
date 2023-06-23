@@ -4,36 +4,40 @@ import { getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts')
-  return posts.map((post: any) => ({
+
+  return posts.map((post: any, i: number) => ({
     params: { slug: post.slug },
-    props: { post }
+    props: {
+      post,
+      prevPost:
+        i === 0
+        ? null
+        : posts[i - 1],
+      nextPost:
+        (i + 1) === posts.length
+        ? null
+        : posts[i + 1]
+    }
   }))
 }
 
-const { post } = Astro.props
+const { post, prevPost, nextPost } = Astro.props
 const { Content } = await post.render()
 ---
 <Layout>
-  <a href="/posts">Top</a>
-  <h1>{ post.slug }</h1>
+  <h1>{ post.data.title }</h1>
   <Content/>
-  <a id="prev-btn" style='display: none;' href="">Previous</a>
-  <a href="/posts">Top</a>
-  <a id="next-btn" style='display: none;' href="">Next</a>
-  <script>
-    const urlSearchParams = new URLSearchParams(window.location.search)
-    const { nextSlug, previousSlug } = Object.fromEntries(urlSearchParams.entries())
-
-    if(previousSlug) {
-      const prevBtn = document.querySelector('#prev-btn');
-      prevBtn.href = `/posts/${previousSlug}`
-      prevBtn.style.display = 'inline'
-    }
-
-    if(nextSlug) {
-      const nextBtn = document.querySelector('#next-btn');
-      nextBtn.href = `/posts/${nextSlug}`
-      nextBtn.style.display = 'inline'
-    }
-  </script>
+  <div id="post-navigation" slot="pre-footer">
+    <ul>
+      <li class="nav-btn">
+        {prevPost && <a href={prevPost.slug}>Previous: {prevPost.data.title}</a>}
+      </li>
+      <li class="nav-btn">
+        <a href="/posts">Top</a>
+      </li>
+      <li class="nav-btn">
+        {nextPost && <a href={nextPost.slug}>Next: {nextPost.data.title}</a>}
+      </li>
+    </ul>
+  </div>
 </Layout>

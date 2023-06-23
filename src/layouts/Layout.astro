@@ -17,8 +17,9 @@ const { title } = Astro.props;
 	<body>
 		<Header />
 		<main>
-			<slot />
+			<slot/>
 		</main>
+		<slot name="pre-footer"/>
 		<Footer />
 	</body>
 </html>

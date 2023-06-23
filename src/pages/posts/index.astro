@@ -6,25 +6,8 @@ const posts = await getCollection('posts')
 ---
 <Layout>
   <div class="links">
-    {posts.map((post: any, index: number) => {
-      let previousIndex = index !== 0 && index - 1
-      let nextIndex = (index + 1) < posts.length && index + 1
-
-      let queryParams = ''
-      if(previousIndex){
-        queryParams += `previousSlug=${ posts[previousIndex].slug }`
-      }
-
-      if(nextIndex) {
-        if(previousIndex){
-          queryParams += '&'
-        }
-        queryParams += `nextSlug=${ posts[nextIndex].slug }`
-      }
-
-      return (
-        <a href={`/posts/${post.slug}${queryParams.length && `?${queryParams}`}`}>{post.id}</a>
-        )
-    })}
+    {posts.map((post: any, index: number) => (
+        <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+    ))}
   </div>
 </Layout>
