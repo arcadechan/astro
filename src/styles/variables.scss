@@ -1,6 +1,8 @@
-$black: #151c20;
-$gray: #dad2a2;
-$teal: #7db3c1;
+$purple: #1d1520;
+$gold: #dad2a2;
+$seafoam: #83a598;
 $white: #ffffff;
 
-$darkBlack: darken($teal, 58%);
+$darkPurple: darken($purple, 5%);
+$lightPurple: lighten($purple, 25%);
+$lightSeafoam: lighten($seafoam, 5%);

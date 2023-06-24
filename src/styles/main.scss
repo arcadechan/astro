@@ -1,29 +1,29 @@
 @import '../styles/variables';
 
 html {
-  background-color: $black;
-  color: $teal;
+  background-color: $purple;
+  color: $seafoam;
   font-family: Consolas, Helvetica, sans-serif;
   font-size: 12px;
 }
 
 a {
-  color: lighten($teal, 10%);
+  color: $gold;
 
   &:hover,
   &:focus {
     outline: none;
-    background-color: $gray;
-    color: $black;
+    background-color: $gold;
+    color: $purple;
   }
 }
 
 h1 {
-  color: $teal;
+  color: $seafoam;
 }
 
 h2 {
-  color: $gray;
+  color: $gold;
 }
 
 h3,
@@ -34,6 +34,10 @@ p {
   color: $white;
 }
 
+pre {
+  padding: .5rem;
+}
+
 body {
   padding: 2rem;
   // max-width: 800px;
@@ -41,7 +45,7 @@ body {
   margin: 0 auto;
 
   main {
-    border: 1px solid $white;
+    border: 1px solid $lightPurple;
     padding: .5rem;
 
     img {
@@ -59,14 +63,14 @@ body {
     &:hover,
     &:focus {
       outline: none;
-      background-color: $gray;
-      color: $black;
+      background-color: $gold;
+      color: $purple;
     }
   }
 }
 
 .box {
-  background-color: $darkBlack;
+  background-color: $darkPurple;
   padding: 1rem;
   margin: 1rem 0;
 }
@@ -74,7 +78,7 @@ body {
 #post-navigation {
   ul {
     display: flex;
-    border: 1px solid $white;
+    border: 1px solid $lightPurple;
     border-top-style: none;
     list-style-type: none;
     margin: 0;
@@ -83,7 +87,7 @@ body {
 
   .nav-btn {
     width: 33.333%;
-    border-right: 1px solid $white;
+    border-right: 1px solid $lightPurple;
     text-align: center;
     padding: .25rem .5rem;
 
